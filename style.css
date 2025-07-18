@@ -12,17 +12,21 @@ GLOBAL STYLES
   font-family: "Poppins", sans-serif;
   overflow: hidden;
   background-color: rgb(199, 225, 235);
+  color: #13205a;
 }
 
 .container {
- padding: 96px 0;
+  padding: 96px 0;
 }
 
-.row{
-margin: 0 auto;
-max-width: 1200px;
+.row {
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
+a {
+  text-decoration: none;
+}
 
 /*
 
@@ -30,29 +34,72 @@ NAVIGATION BAR
 
 */
 
-nav{
-display: flex;
-justify-content: space-between;
+nav {
+  display: flex;
+  justify-content: space-between;
 }
 
-.nav__row{
-margin-top: 5vh;
+.nav__row {
+  margin: 5vh auto;
 }
 
-.nav__logo--wrapper{
-display: flex;
+.nav__logo--wrapper {
+  display: flex;
 }
 
-.nav__logo--img{
-display: flex;
-height: 100px;
+.nav__logo--img {
+  height: 100px;
 }
 
-.nav__links{
-display: flex;
-align-items: center;
+.nav__links {
+  display: flex;
+  align-items: center;
 }
 
-.nav__link{
-padding: 20px;
+.nav__link {
+  margin: 20px;
+  padding: 12px 16px;
+  border-radius: 32px;
+  background-color: #31718e8a;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav__link:hover {
+  background-color: #1f688aaf;
+  transform: scale(1.1);
+}
+
+/*
+
+HEADER
+
+*/
+
+.header__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__title {
+  font-weight: 900;
+  font-size: 48px;
+  margin: 8px 0 16px;
+  text-align: center;
+}
+
+.header__input {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header__input--bar {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  padding: 24px 0;
+  border-radius: 12px;
 }

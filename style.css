@@ -11,8 +11,8 @@ GLOBAL STYLES
   margin: 0;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
-  background-color: rgb(199, 225, 235);
-  color: #13205a;
+  background-color: #bbdbe6;
+  color: #1c3666;
 }
 
 .container {
@@ -27,6 +27,10 @@ GLOBAL STYLES
 a {
   text-decoration: none;
 }
+
+/* button{
+  cursor: pointer;
+} */
 
 /*
 
@@ -45,6 +49,7 @@ nav {
 
 .nav__logo--wrapper {
   display: flex;
+  padding: 12px;
 }
 
 .nav__logo--img {
@@ -94,12 +99,46 @@ HEADER
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .header__input--bar {
-  margin: 0 auto;
   width: 80%;
   text-align: center;
-  padding: 24px 0;
+  padding: 16px 10%;
   border-radius: 12px;
+  outline: none;
+  font-size: 20px;
+  border: 1px solid #13205a;
+  transition: all 0.1s ease-in-out;
+}
+
+.header__input--bar:focus {
+  border-width: 3px;
+}
+
+.header__input--btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12%;
+  border: none;
+  padding: 0;
+  display: flex;
+  transition: all 0.2s ease-in-out;
+  border-radius: 50%;
+}
+
+.header__input--btn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.fa-magnifying-glass {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #1c3666;
+  color: #bbdbe6;
 }

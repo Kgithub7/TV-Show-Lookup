@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TV Show Lookup</title>
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/9e76291188.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
     <section id="landing-page">
@@ -16,7 +21,7 @@
 
           <div class="nav__links">
             <a href="#" class="nav__link">Home</a>
-            <a href="#" class="nav__link">Search</a>
+            <a href="#" class="nav__link" onclick="activateSearch()">Search</a>
           </div>
         </nav>
       </div>
@@ -24,17 +29,25 @@
         <div class="row">
           <div class="header__description">
             <h1 class="header__title">Find All Your Favorite Shows</h1>
-            <div class="header__input">
+            <form class="header__input" role="search">
               <input
                 class="header__input--bar"
-                type="search"
+                type="text"
                 name="tv-show"
                 placeholder="Enter TV Show Name"
               />
-            </div>
+              <button
+                onclick="search(event)"
+                type="submit"
+                class="header__input--btn"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </form>
           </div>
         </div>
       </header>
     </section>
+    <section id="shows"></section>
   </body>
 </html>

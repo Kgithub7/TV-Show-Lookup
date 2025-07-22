@@ -10,9 +10,12 @@ GLOBAL STYLES
   box-sizing: border-box;
   margin: 0;
   font-family: "Poppins", sans-serif;
-  overflow: hidden;
-  background-color: #bbdbe6;
+  overflow-x: hidden;
   color: #1c3666;
+}
+
+body {
+  background: #bbdbe6;
 }
 
 .container {
@@ -65,15 +68,19 @@ nav {
   margin: 20px;
   padding: 12px 16px;
   border-radius: 32px;
-  background-color: #31718e8a;
+  background-color: #ffffffb3;
   font-weight: 600;
   transition: all 0.2s ease-in-out;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav__link:hover {
-  background-color: #1f688aaf;
+  background-color: #ffffff;
   transform: scale(1.1);
+}
+
+.nav__link:active {
+  transform: scale(1);
 }
 
 /*
@@ -109,12 +116,11 @@ HEADER
   border-radius: 12px;
   outline: none;
   font-size: 20px;
-  border: 1px solid #13205a;
-  transition: all 0.1s ease-in-out;
+  border: 2px solid transparent;
 }
 
 .header__input--bar:focus {
-  border-width: 3px;
+  border-color: #13205a;
 }
 
 .header__input--btn {
@@ -133,6 +139,10 @@ HEADER
   transform: translateY(-50%) scale(1.1);
 }
 
+.header__input--btn:active {
+  transform: translateY(-50%) scale(1);
+}
+
 .fa-magnifying-glass {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   padding: 12px;
@@ -141,4 +151,59 @@ HEADER
   cursor: pointer;
   background-color: #1c3666;
   color: #bbdbe6;
+}
+
+/*
+
+SHOWS
+
+*/
+
+.shows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 12px;
+  justify-content: center;
+}
+
+.show {
+  background-color: #f4faff;
+  display: flex;
+  width: 50%;
+  max-width: 576px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.show:hover {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.show__description {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  line-height: 1.5;
+  font-weight: bold;
+  flex: 1;
+}
+
+.show__name {
+  margin-bottom: 24px;
+  font-size: 28px;
+}
+
+.show__description--text {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.show__img--wrapper {
+  display: flex;
+}
+
+.show__img {
 }

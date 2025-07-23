@@ -31,10 +31,6 @@ a {
   text-decoration: none;
 }
 
-/* button{
-  cursor: pointer;
-} */
-
 /*
 
 NAVIGATION BAR
@@ -117,6 +113,7 @@ HEADER
   outline: none;
   font-size: 20px;
   border: 2px solid transparent;
+  background-color: #f4faff;
 }
 
 .header__input--bar:focus {
@@ -132,7 +129,7 @@ HEADER
   padding: 0;
   display: flex;
   transition: all 0.2s ease-in-out;
-  border-radius: 50%;
+  background-color: transparent;
 }
 
 .header__input--btn:hover {
@@ -168,8 +165,9 @@ SHOWS
 
 .show {
   background-color: #f4faff;
+  filter: brightness(.95);
   display: flex;
-  width: 50%;
+  width: 100%;
   max-width: 576px;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -177,18 +175,18 @@ SHOWS
 }
 
 .show:hover {
-  background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  filter: brightness(1);
 }
 
 .show__description {
   padding: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   line-height: 1.5;
   font-weight: bold;
-  flex: 1;
+  flex: 2;
 }
 
 .show__name {
@@ -203,7 +201,35 @@ SHOWS
 
 .show__img--wrapper {
   display: flex;
+  justify-content: end;
+  flex: 1;
+  margin-left: 16px;
+  transition: all .3s ease-in-out;
+  position: relative;
 }
 
-.show__img {
+.show__img{
+  transition: all .3s ease-in-out;
+}
+
+.show__img--wrapper:hover .show__img{
+  filter: brightness(.5) blur(5px);
+}
+
+.show__img--wrapper:hover .show__img--link{
+  opacity: 1;
+}
+
+.show__img--wrapper:hover::after {
+  opacity: 1;
+}
+
+.show__img--link{
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #f4faff;
+  transition: all .3s ease-in-out;
 }

@@ -13,38 +13,36 @@ async function search(event) {
       if (
         showObject.show.name &&
         showObject.show.language &&
-        showObject.show.summary &&
         showObject.show.genres[0] &&
         showObject.show.averageRuntime &&
-        showObject.show.rating.average
+        showObject.show.summary &&
+        showObject.show.image.medium
       ) {
-        return `<div class="show">
+        return `
+<div class="show--wrapper">
+        <div class="show">
 <div class="show__description">
   <h2 class="show__name">${showObject.show.name}</h2>
   <p>Language: <span class="show__description--text">${
     showObject.show.language
   }</span></p>
-    ${
-      showObject.show.genres[0]
-        ? `<p>Genre(s): <span class="show__description--text">${showObject.show.genres.join(
-            ", "
-          )}</span></p>`
-        : ``
-    }
-    ${
+<p>Genre(s): <span class="show__description--text">${showObject.show.genres.join(
+          ", "
+        )}</span></p>
+<p>
+    Duration:
+    <span           class="show__description--text">${
       showObject.show.averageRuntime
-        ? `<p>
-    Average Episode Length:
-    <span           class="show__description--text">${showObject.show.averageRuntime} minutes</span>
-</p>`
-        : ``
-    }
-  ${
-    showObject.show.rating.average
-      ? `<p>
-  Rating: <span class="show__description--text">${showObject.show.rating.average}/10</span>`
-      : ``
-  }
+    } minutes</span>
+</p>
+<p>
+Rating: <span class="show__description--text">
+${
+  showObject.show.rating.average
+    ? `${showObject.show.rating.average}/10`
+    : `N/A`
+}
+</span>
   </p>
   </div>
 <div class="show__img--wrapper">
@@ -53,13 +51,27 @@ async function search(event) {
     alt="${showObject.show.name}'s Poster Image"
     class="show__img"
   />
-  <a href="#" class="show__img--link">View Summary</a>
+  <a href="" class="show__img--link" onclick="toggleSummary(event)">View Summary</a>
+</div>
+</div>
+<div class="show__summary-modal--wrapper">
+<div class="show__summary-modal">
+  <p class="show__summary">${extractSummary(showObject.show.summary)}</p>
+${
+  showObject.show.officialSite
+    ? `<p>
+    Click <b><a href="${showObject.show.officialSite}" target="_blank">here</a></b> for more information.
+  </p>`
+    : `<p><i>*Link is currently unavailable.</i></p>`
+}
+  <i class="fa-solid fa-times" onclick="toggleSummary(event)"></i>
+</div>
 </div>
 </div>`;
       }
     })
     .join("\n");
-  console.log(shows);
+  console.log(result);
   searchResults.innerHTML = shows;
 }
 
@@ -70,7 +82,14 @@ function activateSearch() {
 function extractSummary(summaryFromAPI) {
   const summary = document.createElement("div");
   summary.innerHTML = summaryFromAPI;
-  // return summary.textContent.trim();
+  return summary.textContent.trim();
+}
+
+function toggleSummary(event) {
+event.preventDefault()
+const selectedShow = event.target.closest(".show--wrapper")
+  selectedShow.classList.toggle("view-summary");
+  document.body.classList.toggle("dim")
 }
 
 // show:
@@ -88,17 +107,16 @@ function extractSummary(summaryFromAPI) {
 // type: "Animation"
 // image: {medium: 'https://static.tvmaze.com/uploads/images/medium_portrait/6/15947.jpg', original: 'https://static.tvmaze.com/uploads/images/original_untouched/6/15947.jpg'}
 
+// <p>
+//   Summary:
+//   <br />
+//   <span class="show__description--text">
+//     ${extractSummary(showObject.show.summary)}
+//   </span>
+// </p>;
 
-  // <p>
-  //   Summary:
-  //   <br />
-  //   <span class="show__description--text">
-  //     ${extractSummary(showObject.show.summary)}
-  //   </span>
-  // </p>;
-
-  //   ${
-  //   showObject.show.officialSite
-  //     ? `<p class="show__description--text">Click <b><a href="${showObject.show.officialSite}" target="_blank">here</a></b> for more info.</p>`
-  //     : ``
-  // }
+//   ${
+//   showObject.show.officialSite
+//     ? `<p class="show__description--text">Click <b><a href="${showObject.show.officialSite}" target="_blank">here</a></b> for more info.</p>`
+//     : ``
+// }

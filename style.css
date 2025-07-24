@@ -31,6 +31,11 @@ a {
   text-decoration: none;
 }
 
+#landing-page,
+#shows-section {
+  transition: all 0.5s ease-in-out;
+}
+
 /*
 
 NAVIGATION BAR
@@ -161,14 +166,18 @@ SHOWS
   flex-wrap: wrap;
   gap: 24px 12px;
   justify-content: center;
+  height: auto;
+}
+
+.show--wrapper{
+display: flex;
 }
 
 .show {
   background-color: #f4faff;
-  filter: brightness(.95);
+  filter: brightness(0.95);
   display: flex;
-  width: 100%;
-  max-width: 576px;
+width: 576px;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
@@ -201,35 +210,116 @@ SHOWS
 
 .show__img--wrapper {
   display: flex;
-  justify-content: end;
   flex: 1;
   margin-left: 16px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   position: relative;
 }
 
-.show__img{
-  transition: all .3s ease-in-out;
+.show__img {
+  transition: all 0.3s ease-in-out;
 }
 
-.show__img--wrapper:hover .show__img{
-  filter: brightness(.5) blur(5px);
-}
-
-.show__img--wrapper:hover .show__img--link{
-  opacity: 1;
-}
-
-.show__img--wrapper:hover::after {
-  opacity: 1;
-}
-
-.show__img--link{
+.show__img--link {
   opacity: 0;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   color: #f4faff;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  font-weight: bold;
+}
+
+.show__img--wrapper:hover .show__img {
+  filter: brightness(0.5) blur(5px);
+}
+
+.show__img--wrapper:hover .show__img--link {
+  opacity: 1;
+}
+
+.show__summary-modal--wrapper {
+  position: fixed;
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  opacity: 0;
+  visibility: hidden;
+  width: 70vw;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  
+}
+
+.show__summary-modal {
+  width: 100%;
+  padding: 48px;
+  position: relative;
+  background-color: #f4faff;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+.dim #landing-page,
+.dim .show {
+  filter: brightness(0.9) blur(10px);
+  pointer-events: none;
+}
+
+.view-summary .show__summary-modal--wrapper {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.view-summary .show__summary-modal--wrapper {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.show__summary {
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.fa-times {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.fa-times:hover {
+transform: scale(1.1);
+}
+
+.fa-times:active {
+  transform: scale(1);
+}
+
+.fa-spinner{
+  animation: spin .7s infinite linear;
+  font-size: 48px;
+  margin: 10px;
+  overflow: hidden;
+
+}
+
+@keyframes spin {
+
+  0%{
+    transform: rotate(0deg);
+  }
+  
+  
+  100%{
+    transform: rotate(360deg);
+  }
 }

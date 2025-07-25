@@ -10,12 +10,16 @@ GLOBAL STYLES
   box-sizing: border-box;
   margin: 0;
   font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
+  overflow: hidden;
   color: #1c3666;
 }
 
 body {
   background: #bbdbe6;
+}
+
+html {
+  overflow-y: visible;
 }
 
 .container {
@@ -53,11 +57,13 @@ nav {
 
 .nav__logo--wrapper {
   display: flex;
-  padding: 12px;
+  margin-left: 12px;
+  width: 20%;
+  min-width: 120px;
 }
 
 .nav__logo--img {
-  height: 100px;
+  width: 100%;
 }
 
 .nav__links {
@@ -108,6 +114,7 @@ HEADER
   display: flex;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
 .header__input--bar {
@@ -167,17 +174,36 @@ SHOWS
   gap: 24px 12px;
   justify-content: center;
   height: auto;
+  overflow: hidden;
 }
 
-.show--wrapper{
-display: flex;
+.show--wrapper {
+  display: flex;
+  width: 45%;
+  aspect-ratio: 2/0.9;
+  overflow: hidden;
+  animation: enter 0.7s linear;
+}
+
+@keyframes enter {
+  0% {
+    transform: translateY(-20%);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .show {
   background-color: #f4faff;
+  width: 100%;
   filter: brightness(0.95);
   display: flex;
-width: 576px;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
@@ -189,18 +215,17 @@ width: 576px;
 }
 
 .show__description {
-  padding: 12px;
+  padding: 12px 0 12px 12px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   line-height: 1.5;
   font-weight: bold;
   flex: 2;
 }
 
 .show__name {
-  margin-bottom: 24px;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .show__description--text {
@@ -242,7 +267,7 @@ width: 576px;
 
 .show__summary-modal--wrapper {
   position: fixed;
-    top: 50%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 12px;
@@ -251,7 +276,7 @@ width: 576px;
   width: 70vw;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease-in-out;
-  
+  z-index: 1;
 }
 
 .show__summary-modal {
@@ -263,6 +288,11 @@ width: 576px;
   transition: all 0.3s ease-in-out;
 }
 
+.dim {
+  position: fixed;
+  width: 100vw;
+}
+
 .dim #landing-page,
 .dim .show {
   filter: brightness(0.9) blur(10px);
@@ -272,13 +302,6 @@ width: 576px;
 .view-summary .show__summary-modal--wrapper {
   opacity: 1;
   visibility: visible;
-  z-index: 1;
-}
-
-.view-summary .show__summary-modal--wrapper {
-  opacity: 1;
-  visibility: visible;
-  z-index: 1;
 }
 
 .show__summary {
@@ -297,29 +320,137 @@ width: 576px;
 }
 
 .fa-times:hover {
-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .fa-times:active {
   transform: scale(1);
 }
 
-.fa-spinner{
-  animation: spin .7s infinite linear;
+.fa-spinner {
+  animation: spin 0.7s infinite linear;
   font-size: 48px;
   margin: 10px;
   overflow: hidden;
-
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.1s ease-in-out;
 }
 
 @keyframes spin {
-
-  0%{
+  0% {
     transform: rotate(0deg);
   }
-  
-  
-  100%{
+
+  100% {
     transform: rotate(360deg);
+  }
+}
+
+.loading .fa-spinner {
+  visibility: visible;
+  opacity: 1;
+}
+
+.loading .show--wrapper {
+  opacity: 0;
+}
+
+@media (max-width: 1024px) {
+  .show__name {
+    font-size: 20px;
+  }
+
+  .show__details,
+  .show__description--text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 860px) {
+  .nav__logo--wrapper {
+    max-height: 70px;
+  }
+
+  .header__title {
+    font-size: 44px;
+  }
+
+  .show--wrapper {
+    width: 90%;
+  }
+
+  .show__name {
+    font-size: 24px;
+  }
+
+  .show__details,
+  .show__description--text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 540px) {
+  .header__title {
+    font-size: 40px;
+  }
+
+  .header__input--bar {
+    font-size: 14px;
+  }
+
+  .show--wrapper {
+    width: 90%;
+  }
+
+  .show__name {
+    font-size: 20px;
+  }
+
+  .show__details,
+  .show__description--text {
+    font-size: 14px;
+  }
+
+  .show__summary-modal {
+    padding: 32px;
+  }
+
+  .show__summary {
+    font-size: 14px;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .show__link,
+  .show__img--link {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 450px) {
+  .nav__logo--wrapper {
+    max-height: 70px;
+  }
+
+  .nav__link:nth-child(2) {
+    display: none;
+  }
+
+  .header__title {
+    font-size: 28px;
+  }
+
+  .show--wrapper {
+    width: 90%;
+  }
+
+  .show__name {
+    font-size: 16px;
+  }
+
+  .show__details,
+  .show__description--text {
+    font-size: 12px;
   }
 }

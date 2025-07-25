@@ -105,32 +105,3 @@ function toggleSummary(event) {
   }
   selectedShow.classList.toggle("view-summary");
 }
-
-// show:
-// name: "Regular Show"
-// language: "English"
-// averageRuntime: 15
-// genres: (2) ['Comedy', 'Adventure']
-// ended: "2017-01-16"
-// network: {id: 11, name: 'Cartoon Network', country: {…}, officialSite: null}
-// officialSite: "http://www.cartoonnetwork.com/tv_shows/regular-show/video"
-// premiered: "2010-09-06"
-// rating: {average: 7.6}
-// runtime: 15
-// summary: "<p>The<b> Regular Show</b> is about Mordecai and Rigby who are two best friends who take the problems and mundane tasks of their boring job to fantastical places.</p>"
-// type: "Animation"
-// image: {medium: 'https://static.tvmaze.com/uploads/images/medium_portrait/6/15947.jpg', original: 'https://static.tvmaze.com/uploads/images/original_untouched/6/15947.jpg'}
-
-// <p>
-//   Summary:
-//   <br />
-//   <span class="show__description--text">
-//     ${extractSummary(showObject.show.summary)}
-//   </span>
-// </p>;
-
-//   ${
-//   showObject.show.officialSite
-//     ? `<p class="show__description--text">Click <b><a href="${showObject.show.officialSite}" target="_blank">here</a></b> for more info.</p>`
-//     : ``
-// }

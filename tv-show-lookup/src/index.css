@@ -182,6 +182,7 @@ SHOWS
   width: 45%;
   aspect-ratio: 2/0.9;
   overflow: hidden;
+  border-radius: 12px;
   animation: enter 0.7s linear;
 }
 

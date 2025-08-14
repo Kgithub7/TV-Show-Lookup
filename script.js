@@ -1,4 +1,3 @@
-const input = document.querySelector(".header__input--bar");
 let yIndex = 0;
 
 async function search(event) {

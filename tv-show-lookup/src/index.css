@@ -11,6 +11,14 @@ GLOBAL STYLES
   margin: 0;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
+}
+
+p,
+h1,
+h2,
+span,
+a,
+input {
   color: #1c3666;
 }
 
@@ -36,6 +44,7 @@ a {
 }
 
 #landing-page,
+nav,
 #shows-section {
   transition: all 0.5s ease-in-out;
 }
@@ -139,6 +148,7 @@ HEADER
   right: 12%;
   border: none;
   padding: 0;
+  border-radius: 50%;
   display: flex;
   transition: all 0.2s ease-in-out;
   background-color: transparent;
@@ -154,12 +164,24 @@ HEADER
 
 .fa-magnifying-glass {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-  padding: 12px;
   border-radius: 50%;
   font-size: 20px;
   cursor: pointer;
+  display: flex;
+  width: auto;
+  padding: 12px;
   background-color: #1c3666;
   color: #bbdbe6;
+}
+
+.header__img--wrapper{
+  margin-top: 30px;
+  height: 50vh;
+}
+
+.header__img{
+  height: 100%;
+  padding: 20px;
 }
 
 /*
@@ -295,6 +317,7 @@ SHOWS
 }
 
 .dim #landing-page,
+.dim nav,
 .dim .show {
   filter: brightness(0.9) blur(10px);
   pointer-events: none;

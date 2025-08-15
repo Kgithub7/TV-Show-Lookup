@@ -1,30 +1,28 @@
-import SearchBar from "../components/ui/SearchBar";
+import SearchBar from "../components/ui/HomeSearchBar";
 import HomeImg from "../assets/home-image.svg"
+import styles from "./Home.module.css"
 
 function Home({inputRef}) {
     
   return (
     <>
-      <section id="landing-page">
+      <section id="landingPage">
         <header>
           <div className="row">
-            <div className="header__description">
-              <h1 className="header__title">Find All Your Favorite Shows</h1>
+            <div className={styles.headerDescription}>
+              <h1 className={styles.headerTitle}>
+                Find All Your Favorite Shows
+              </h1>
               <SearchBar inputRef={inputRef} />
-              <div className="header__img--wrapper">
-                <img src={HomeImg} className="header__img" alt="" />
+              <div className={styles.headerImgWrapper}>
+                <img src={HomeImg} className={styles.headerImg} alt="" />
               </div>
             </div>
           </div>
         </header>
       </section>
-      <section id="shows-section">
-        <div className="container">
-          <div className="row">
-            <div className="shows"></div>
-          </div>
-        </div>
-      </section>
+
+
     </>
   );
 }

@@ -1,21 +1,19 @@
 import { Link } from "react-router";
 import NavLogo from "../assets/logo.png";
+import styles from "./Nav.module.css";
 
 function Nav({ activateSearch }) {
-
-
-
   return (
-    <div className="row nav__row">
+    <div className={`row ${styles.navRow}`}>
       <nav>
-        <div className="nav__logo--wrapper">
-          <img className="nav__logo--img" src={NavLogo} />
+        <div className={styles.navLogoWrapper}>
+          <img className={styles.navLogoImg} src={NavLogo} />
         </div>
-        <div className="nav__links">
-          <Link to="/" className="nav__link">
+        <div className={styles.navLinks}>
+          <Link to="/" className={styles.navLink}>
             Home
           </Link>
-          <Link to="/"className="nav__link"  onClick={activateSearch}>
+          <Link to="/" className={styles.navLink} onClick={activateSearch}>
             Search
           </Link>
         </div>

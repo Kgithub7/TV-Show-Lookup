@@ -1,0 +1,47 @@
+.headerDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerTitle {
+  font-weight: 900;
+  font-size: 48px;
+  margin: 8px 0 16px;
+  text-align: center;
+}
+
+.headerImgWrapper {
+  margin-top: 20px;
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  min-width: 240px;
+}
+
+.headerImg {
+  height: 100%;
+}
+
+@media (max-width: 860px) {
+  .headerTitle {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 540px) {
+  .headerTitle {
+    font-size: 40px;
+  }
+
+  .headerImgWrapper {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .headerTitle {
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,70 @@
+.headerInput {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.headerInputBar {
+  width: 80%;
+  text-align: center;
+  padding: 16px 10%;
+  border-radius: 12px;
+  outline: none;
+  font-size: 20px;
+  border: 2px solid transparent;
+  background-color: #f4faff;
+}
+
+.headerInputBar:focus {
+  border-color: #13205a;
+}
+
+.headerInputBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12%;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  transition: all 0.2s ease-in-out;
+  background-color: transparent;
+}
+
+.headerInputBtn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.headerInputBtn:active {
+  transform: translateY(-50%) scale(1);
+}
+
+.headerInputIcon {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  width: auto;
+  padding: 12px;
+  background-color: #1c3666;
+  color: #bbdbe6;
+}
+
+@media (max-width: 540px) {
+  .headerInputBar {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 450px) {
+  .headerInputBar {
+    font-size: 16px;
+  }
+  .headerInputIcon {
+    padding: 8px;
+  }
+}

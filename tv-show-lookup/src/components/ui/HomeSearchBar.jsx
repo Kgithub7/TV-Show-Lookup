@@ -1,23 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "./HomeSearchBar.module.css";
 
 function SearchBar({ inputRef }) {
   return (
-    <form className="header__input" role="search">
+    <form className={styles.headerInput} role="search" onSubmit="">
       <input
         ref={inputRef}
-        className="header__input--bar"
+        className={styles.headerInputBar}
         type="text"
         name="tv-show"
         placeholder="Enter TV Show Name"
       />
-      <button
-        onClick="search(event)"
-        type="submit"
-        className="header__input--btn"
-      >
+      <button type="submit" className={styles.headerInputBtn}>
         <FontAwesomeIcon
           icon="magnifying-glass"
-          className="header__input--icon"
+          className={styles.headerInputIcon}
         />
       </button>
     </form>

@@ -1,0 +1,25 @@
+.navRow {
+    padding: 2vh 0;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 6px 10px -8px rgba(0, 0, 0, 1);
+  background-color: #2f3e4e;
+}
+
+.navLogoWrapper {
+  padding-left: 10px;
+}
+
+.navLogoImg {
+  filter: invert(0.5);
+}
+
+@media (max-width: 450px) {
+  .navLogoWrapper {
+    max-width: 100px;
+  }
+
+  .navLink {
+    display: none;
+  }
+}

@@ -28,6 +28,12 @@ html {
   overflow-y: visible;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .container {
   padding: 96px 0;
 }

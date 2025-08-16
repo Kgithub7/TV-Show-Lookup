@@ -1,16 +1,10 @@
-nav {
-  display: flex;
-  justify-content: space-between;
-}
-
 .navRow {
-  margin: 5vh auto;
+  margin: 0 auto;
   border: none;
 }
 
 .navLogoWrapper {
   display: flex;
-  margin-left: 12px;
   width: 20%;
   min-width: 150px;
 }
@@ -28,7 +22,7 @@ nav {
   margin: 20px;
   padding: 12px 16px;
   border-radius: 32px;
-  background-color: #ffffffb3;
+  background-color: #ffffffcc;
   font-weight: 600;
   transition: all 0.2s ease-in-out;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -50,15 +44,5 @@ nav {
 
   .headerTitle {
     font-size: 44px;
-  }
-}
-
-@media (max-width: 450px) {
-  .navLogoWrapper {
-    max-height: 70px;
-  }
-
-  .navLink:nth-child(2) {
-    display: none;
   }
 }

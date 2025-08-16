@@ -1,0 +1,52 @@
+.searchInput {
+  width: 50%;
+  align-items: center;
+}
+
+.searchInputBar {
+  padding: 2% 10%;
+  height: 50%;
+  font-size: 16px;
+  border-radius: 100px;
+}
+
+.searchInputIcon {
+  padding: 8px;
+}
+
+@media (max-width: 850px) {
+  .searchInputIcon {
+    font-size: 14px;
+  }
+  .searchInputBar {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 540px) {
+  .searchInputBar {
+    font-size: 12px;
+  }
+
+  .searchInputBtn {
+    display: none;
+  }
+
+  .searchInput {
+    justify-content: end;
+  }
+}
+
+@media (max-width: 450px) {
+  .searchInputBar {
+    font-size: 10px;
+  }
+
+  .searchInputBtn {
+    display: none;
+  }
+
+  .searchInputIcon {
+    padding: 8px;
+  }
+}

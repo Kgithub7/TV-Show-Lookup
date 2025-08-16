@@ -1,19 +1,21 @@
-import SearchBar from "../components/ui/HomeSearchBar";
 import HomeImg from "../assets/home-image.svg"
 import styles from "./Home.module.css"
+import HomeNav from "../components/HomeNav";
+import HomeSearchBar from "../components/ui/HomeSearchBar";
 
 function Home({inputRef}) {
     
   return (
     <>
-      <section id="landingPage">
+      <HomeNav  />
+      <section id={styles.landingPage}>
         <header>
           <div className="row">
             <div className={styles.headerDescription}>
               <h1 className={styles.headerTitle}>
                 Find All Your Favorite Shows
               </h1>
-              <SearchBar inputRef={inputRef} />
+              <HomeSearchBar inputRef={inputRef} />
               <div className={styles.headerImgWrapper}>
                 <img src={HomeImg} className={styles.headerImg} alt="" />
               </div>
@@ -21,8 +23,6 @@ function Home({inputRef}) {
           </div>
         </header>
       </section>
-
-
     </>
   );
 }

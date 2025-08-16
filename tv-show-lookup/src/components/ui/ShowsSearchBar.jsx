@@ -1,21 +1,17 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import baseStyles from "./BaseSearchBar.module.css";
-import styles from "./HomeSearchBar.module.css";
+import styles from "./ShowsSearchBar.module.css";
 
-function HomeSearchBar() {
+function ShowsSearchBar() {
   return (
-    <form
-      className={`${baseStyles.searchInput} ${styles.searchInput}`}
-      role="search"
-      onSubmit=""
-    >
+    <form className={`${baseStyles.searchInput} ${styles.searchInput}`} >
       <input
         className={`${baseStyles.searchInputBar} ${styles.searchInputBar}`}
         type="text"
         name="tv-show"
         placeholder="Enter TV Show Name"
       />
-      <button type="submit" className={baseStyles.searchInputBtn}>
+      <button type="submit" className={`${baseStyles.searchInputBtn} ${styles.searchInputBtn}`}>
         <FontAwesomeIcon
           icon="magnifying-glass"
           className={`${baseStyles.searchInputIcon} ${styles.searchInputIcon}`}
@@ -25,4 +21,4 @@ function HomeSearchBar() {
   );
 }
 
-export default HomeSearchBar;
+export default ShowsSearchBar;

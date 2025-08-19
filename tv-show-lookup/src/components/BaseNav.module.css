@@ -16,10 +16,12 @@
 .navLinks {
   display: flex;
   align-items: center;
+  width: 20%;
+  overflow: visible;
 }
 
 .navLink {
-  margin: 20px;
+  margin: 20px 20px 20px 0;
   padding: 12px 16px;
   border-radius: 32px;
   background-color: #ffffffcc;

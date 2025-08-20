@@ -17,8 +17,8 @@ function ShowsNav() {
           />
         </div>
         <ShowsSearchBar />
-        <div className={baseStyles.navLinks}>
-          <Link to="/" className={`${baseStyles.navLink} ${styles.navLink}`}>
+        <div className={styles.navLinks}>
+          <Link to="/" className={styles.navLink}>
             Home
           </Link>
         </div>

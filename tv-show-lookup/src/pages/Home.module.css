@@ -10,9 +10,10 @@
 
 .headerTitle {
   font-weight: 900;
-  font-size: 48px;
-  margin: 8px 0 16px;
+  font-size: 40px;
+  margin-bottom: 16px;
   text-align: center;
+  padding: 0 10%;
 }
 
 .headerImgWrapper {
@@ -31,22 +32,18 @@
 
 @media (max-width: 860px) {
   .headerTitle {
-    font-size: 44px;
+    font-size: 32px;
   }
 }
 
 @media (max-width: 540px) {
-  .headerTitle {
-    font-size: 40px;
-  }
-
-  .headerImgWrapper {
+.headerImgWrapper {
     margin-top: 0;
   }
 }
 
 @media (max-width: 450px) {
   .headerTitle {
-    font-size: 28px;
+    font-size: 24px;
   }
 }

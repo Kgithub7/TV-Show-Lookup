@@ -3,7 +3,7 @@ import NavLogo from "../assets/logo.png";
 import baseStyles from "./BaseNav.module.css";
 import styles from "./HomeNav.module.css";
 
-function HomeNav({ activateSearch }) {
+function HomeNav() {
   return (
     <div className={`row ${baseStyles.navRow} ${styles.navRow}`}>
       <nav>
@@ -12,14 +12,14 @@ function HomeNav({ activateSearch }) {
         >
           <img className={styles.navLogoImg} src={NavLogo} />
         </div>
-        <div className={baseStyles.navLinks}>
+        {/* <div className={baseStyles.navLinks}>
           <Link to="/shows" className={baseStyles.navLink}>
             Home
           </Link>
-          {/* <Link to="/" className={styles.navLink} onClick={activateSearch}>
+          <Link to="/" className={styles.navLink} onClick={activateSearch}>
             Search
-          </Link> */}
-        </div>
+          </Link>
+        </div> */}
       </nav>
     </div>
   );

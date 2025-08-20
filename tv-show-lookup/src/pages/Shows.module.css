@@ -1,3 +1,36 @@
-#showsSection{
-    min-height: 100vh;
+#showsSection {
+  min-height: 100vh;
+}
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.notFoundImg {
+  width: 20vw;
+  min-width: 200px;
+  margin-bottom: 24px;
+}
+
+.loadingStage {
+  text-align: center;
+}
+
+.loadingStageIcon {
+  animation: spin 1s infinite linear;
+  font-size: 40px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

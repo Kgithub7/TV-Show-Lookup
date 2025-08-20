@@ -1,6 +1,8 @@
-.navRow {
-  margin: 0 auto;
-  border: none;
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .navLogoWrapper {
@@ -11,28 +13,6 @@
 
 .navLogoImg {
   width: 100%;
-}
-
-.navLinks {
-  display: flex;
-  align-items: center;
-  width: 20%;
-  overflow: visible;
-}
-
-.navLink {
-  margin: 20px 20px 20px 0;
-  padding: 12px 16px;
-  border-radius: 32px;
-  background-color: #ffffffcc;
-  font-weight: 600;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-.navLink:hover {
-  background-color: #ffffff;
-  transform: scale(1.1);
 }
 
 .navLink:active {

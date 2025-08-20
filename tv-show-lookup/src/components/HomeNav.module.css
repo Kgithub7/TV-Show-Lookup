@@ -1,8 +1,9 @@
 .navRow {
-  padding: 2vh 0 5vh 0;
+  padding: 5vh 0 2vh 0;
 }
 
 .navLogoWrapper {
-  padding-left: 10px;
-  max-height: 50px;
+  display: flex;
+  width: 30%;
+  min-width: 250px;
 }

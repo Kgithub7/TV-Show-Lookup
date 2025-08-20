@@ -1,19 +1,33 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLocation } from "react-router";
+import { useEffect, useState } from "react";
 import ShowsNav from "../components/ShowsNav";
 import styles from "./Shows.module.css";
 import axios from "axios";
+import notFoundImage from "../assets/not-found.svg";
 
 function Shows() {
+  const [shows, setShows] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+
   async function search() {
-    const location = useLocation();
     const showName = location.state;
     const { data } = await axios.get(
       `https://api.tvmaze.com/search/shows?q=${showName}`
     );
     console.log(data.map((obj) => obj.show));
+    console.log(showName);
+    const extractShows = data.map((obj) => obj.show);
+    setShows(extractShows);
+    setLoading(false);
   }
 
-  search();
+  useEffect(() => {
+    search();
+    console.log(shows);
+    console.log(loading);
+  }, [location.state]);
   // const showName = input.value;
   // const searchResults = document.querySelector(`.${styles.shows}`);
   // searchResults.innerHTML = `<FontAwesomeIcon icon="faSpinner" />`;
@@ -98,7 +112,28 @@ function Shows() {
       <section id={styles.showsSection}>
         <div className="container">
           <div className="row">
-            <div className={styles.shows}></div>
+            {loading ? (
+              <div className={styles.loadingStage}>
+                <FontAwesomeIcon
+                  icon="compact-disc"
+                  className={styles.loadingStageIcon}
+                />
+              </div>
+            ) : (
+              <div className={styles.shows}>
+                {shows.length > 0 ? (
+                  <></>
+                ) : (
+                  <div className={styles.notFound}>
+                    <img src={notFoundImage} className={styles.notFoundImg} />
+                    <h3>
+                      Your search produced no results.
+                      <br /> Please try again.
+                    </h3>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </section>

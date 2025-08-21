@@ -1,24 +1,50 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import baseStyles from "./BaseSearchBar.module.css";
 import styles from "./ShowsSearchBar.module.css";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 
 function ShowsSearchBar() {
-  return (
-    <form className={`${baseStyles.searchInput} ${styles.searchInput}`} >
-      <input
-        className={`${baseStyles.searchInputBar} ${styles.searchInputBar}`}
-        type="text"
-        name="tv-show"
-        placeholder="Enter TV Show Name"
+  const navigate=useNavigate()
+const [inputValue, setInputValue] = useState("");
+  
+function onSearch(event) {
+  if (inputValue.trim()) {
+    event.preventDefault();
+    const searchValue = inputValue;
+    navigate(".", { state: searchValue });
+  }
+}
+
+return (
+  <form
+    className={`${baseStyles.searchInput} ${styles.searchInput}`}
+    role="search"
+  >
+    <input
+      className={`${baseStyles.searchInputBar} ${styles.searchInputBar}`}
+      type="text"
+      onKeyDown={(event) => {
+        if (event.key === "Enter") onSearch(event);
+      }}
+      onChange={(event) => setInputValue(event.target.value)}
+      placeholder="Enter TV Show Name"
+    />
+    <button
+      type="submit"
+      className={`${baseStyles.searchInputBtn} ${styles.searchInputBtn}`}
+      onClick={(event) => {
+        event.preventDefault();
+        if (inputValue) navigate(".", { state: inputValue });
+      }}
+    >
+      <FontAwesomeIcon
+        icon="magnifying-glass"
+        className={`${baseStyles.searchInputIcon} ${styles.searchInputIcon}`}
       />
-      <button type="submit" className={`${baseStyles.searchInputBtn} ${styles.searchInputBtn}`}>
-        <FontAwesomeIcon
-          icon="magnifying-glass"
-          className={`${baseStyles.searchInputIcon} ${styles.searchInputIcon}`}
-        />
-      </button>
-    </form>
-  );
+    </button>
+  </form>
+);
 }
 
 export default ShowsSearchBar;

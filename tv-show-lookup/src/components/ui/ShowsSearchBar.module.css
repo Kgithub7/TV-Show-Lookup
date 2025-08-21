@@ -25,6 +25,7 @@
 @media (max-width: 540px) {
   .searchInputBar {
     font-size: 12px;
+    text-align: center;
   }
 
   .searchInputBtn {
@@ -37,9 +38,6 @@
     font-size: 10px;
   }
 
-  .searchInputBtn {
-    display: none;
-  }
 
   .searchInputIcon {
     padding: 8px;

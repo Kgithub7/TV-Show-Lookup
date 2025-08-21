@@ -3,6 +3,7 @@
 }
 
 .headerDescription {
+  animation: fadeIn 1s linear;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +29,17 @@
 
 .headerImg {
   height: 100%;
+}
+
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+  
 }
 
 @media (max-width: 860px) {

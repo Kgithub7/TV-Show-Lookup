@@ -8,7 +8,7 @@ function HomeSearchBar() {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
 
-  function submit(event) {
+  function onSearch(event) {
     if (inputValue) {
       event.preventDefault();
       const searchValue = inputValue;
@@ -25,7 +25,7 @@ function HomeSearchBar() {
         className={`${baseStyles.searchInputBar} ${styles.searchInputBar}`}
         type="text"
         onKeyDown={(event) => {
-          if (event.key === "Enter") submit(event);
+          if (event.key === "Enter") onSearch(event);
         }}
         onChange={(event) => setInputValue(event.target.value)}
         placeholder="Enter TV Show Name"

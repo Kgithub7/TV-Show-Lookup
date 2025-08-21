@@ -1,71 +1,113 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Show.module.css";
 
-function Show() {
-   const shows = result
-      .map((showObject) => {
-        if (
-          showObject.show.name &&
-          showObject.show.language &&
-          showObject.show.genres[0] &&
-          showObject.show.averageRuntime &&
-          showObject.show.summary &&
-          showObject.show.image.medium
-        ) {
-          return`
-          <div class="${styles.showWrapper}">
-            <div class="${styles.show}">
-              <div class="${styles.showDescription}">
-                <h2 class="${styles.showName}">${showObject.show.name}</h2>
-                <div class="${styles.showDetails}">
-                  <p>Language: <span class="${styles.showDescriptionText}">${
-            showObject.show.language
-          }</span></p>
-                  <p>Genre(s): <span class="${
-                    styles.showDescriptionText
-                  }">${showObject.show.genres.join(", ")}</span></p>
-                  <p>Duration: <span class="${styles.showDescriptionText}">${
-            showObject.show.averageRuntime
-          } minutes</span></p>
-                  <p>Rating: <span class="${styles.showDescriptionText}">
-                    ${
-                      showObject.show.rating.average
-                        ? `${showObject.show.rating.average}/10`
-                        : `N/A`
-                    }
-                  </span></p>
-                </div>
-              </div>
-              <div class="${styles.showImgWrapper}">
-                <img src="${showObject.show.image.medium}" alt="${
-            showObject.show.name
-          }'s Poster Image" class="${styles.showImg}" />
-                <a href="" class="${
-                  styles.showImgLink
-                }" onclick="toggleSummary(event)">View Summary</a>
-              </div>
+function Show({ show }) {
+  let yIndex = 0;
+  function extractSummary(summaryFromAPI) {
+    const summary = document.createElement("div");
+    summary.innerHTML = summaryFromAPI;
+    return summary.textContent.trim();
+  }
+
+  function toggleSummary(event) {
+    event.preventDefault();
+    const selectedShow = event.target.closest(`.${styles.showWrapper}`);
+    if (!document.body.classList.contains(styles.dim)) {
+      yIndex = window.scrollY;
+      document.body.style.top = `-${yIndex}px`;
+      document.body.classList.add(styles.dim);
+    } else {
+      document.body.classList.remove(styles.dim);
+      window.scrollTo(0, yIndex);
+    }
+    selectedShow.classList.toggle(styles.viewSummary);
+  }
+
+  if (
+    show.name &&
+    show.language &&
+    show.genres[0] &&
+    show.averageRuntime &&
+    show.summary &&
+    show.image &&
+    show.image.medium
+  ) {
+    let showImage = show.image.medium;
+    return (
+      <div className={styles.showWrapper}>
+        <div className={styles.show}>
+          <div className={styles.showDescription}>
+            <h2 className={styles.showName}>{show.name}</h2>
+            <div className={styles.showDetails}>
+              <p>
+                Language:{" "}
+                <span className={styles.showDescriptionText}>
+                  {show.language}
+                </span>
+              </p>
+              <p>
+                Genre(s):{" "}
+                <span className={styles.showDescriptionText}>
+                  {show.genres.join(", ")}
+                </span>
+              </p>
+              <p>
+                Duration:{" "}
+                <span className={styles.showDescriptionText}>
+                  {show.averageRuntime} minutes
+                </span>
+              </p>
+              <p>
+                Rating:{" "}
+                <span className={styles.showDescriptionText}>
+                  {show.rating.average ? `${show.rating.average}/10` : "N/A"}
+                </span>
+              </p>
             </div>
-            <div class="${styles.showSummaryModalWrapper}">
-              <div class="${styles.showSummaryModal}">
-                <p class="${styles.showSummary}">${extractSummary(
-            showObject.show.summary
-          )}</p>
-                ${
-                  showObject.show.officialSite
-                    ? `<p class="${styles.showLink}">
-                        Click <b><a href="${showObject.show.officialSite}" target="_blank">here</a></b> for more information.
-                      </p>`
-                    : `<p><i>*Link is currently unavailable.</i></p>`
-                }
-                <i class="${styles.faTimes}" onclick="toggleSummary(event)"></i>
-              </div>
-            </div>
-          </div>`;
-        }
-      })
-      .join("\n");
-  return (
-<></>
-  );
+          </div>
+          <div className={styles.showImgWrapper}>
+            <img
+              src={showImage}
+              alt={`${show.name}'s Poster Image`}
+              className={styles.showImg}
+            />
+            <span
+              className={styles.showImgLink}
+              onClick={(event) => toggleSummary(event)}
+            >
+              View Summary
+            </span>
+          </div>
+        </div>
+        <div className={styles.showSummaryModalWrapper}>
+          <div className={styles.showSummaryModal}>
+            <p className={styles.showSummary}>{extractSummary(show.summary)}</p>
+
+            {show.officialSite ? (
+              <p className={styles.showLink}>
+                Click{" "}
+                <b>
+                  <a href={show.officialSite} target="_blank">
+                    here
+                  </a>
+                </b>{" "}
+                for more information.
+              </p>
+            ) : (
+              <p>
+                <i>*Link is currently unavailable.</i>
+              </p>
+            )}
+            <FontAwesomeIcon
+              icon="xmark"
+              className={styles.faXmark}
+              onClick={(event) => toggleSummary(event)}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Show;

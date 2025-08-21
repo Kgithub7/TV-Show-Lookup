@@ -5,6 +5,7 @@ import ShowsNav from "../components/ShowsNav";
 import styles from "./Shows.module.css";
 import axios from "axios";
 import notFoundImage from "../assets/not-found.svg";
+import Show from "../components/Show";
 
 function Shows() {
   const [shows, setShows] = useState([]);
@@ -24,9 +25,11 @@ function Shows() {
   }
 
   useEffect(() => {
+    setLoading(true);
     search();
     console.log(shows);
     console.log(loading);
+    console.log(location.state);
   }, [location.state]);
   // const showName = input.value;
   // const searchResults = document.querySelector(`.${styles.shows}`);
@@ -122,7 +125,9 @@ function Shows() {
             ) : (
               <div className={styles.shows}>
                 {shows.length > 0 ? (
-                  <></>
+                  shows.map((showObject, index) => 
+                    <Show show={showObject} key={index} />
+                  )
                 ) : (
                   <div className={styles.notFound}>
                     <img src={notFoundImage} className={styles.notFoundImg} />

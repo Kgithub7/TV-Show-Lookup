@@ -2,6 +2,15 @@
   min-height: 100vh;
 }
 
+.shows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 12px;
+  justify-content: center;
+  height: auto;
+  overflow: hidden;
+}
+
 .notFound {
   display: flex;
   flex-direction: column;

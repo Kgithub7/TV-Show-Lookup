@@ -6,7 +6,7 @@ import ShowsSearchBar from "./ui/ShowsSearchBar";
 
 function ShowsNav() {
   return (
-    <div className={`${baseStyles.navRow} ${styles.navRow}`}>
+    <div className={`${styles.navRow} ${styles.navRow}`}>
       <nav className="row">
         <div
           className={`${baseStyles.navLogoWrapper} ${styles.navLogoWrapper}`}

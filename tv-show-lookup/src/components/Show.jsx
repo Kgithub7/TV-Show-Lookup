@@ -1,27 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Show.module.css";
+import { Link, useParams } from "react-router";
 
 function Show({ show }) {
-  let yIndex = 0;
-  function extractSummary(summaryFromAPI) {
-    const summary = document.createElement("div");
-    summary.innerHTML = summaryFromAPI;
-    return summary.textContent.trim();
-  }
-
-  function toggleSummary(event) {
-    event.preventDefault();
-    const selectedShow = event.target.closest(`.${styles.showWrapper}`);
-    if (!document.body.classList.contains(styles.dim)) {
-      yIndex = window.scrollY;
-      document.body.style.top = `-${yIndex}px`;
-      document.body.classList.add(styles.dim);
-    } else {
-      document.body.classList.remove(styles.dim);
-      window.scrollTo(0, yIndex);
-    }
-    selectedShow.classList.toggle(styles.viewSummary);
-  }
+  const { shows } = useParams();
 
   if (
     show.name &&
@@ -71,38 +52,12 @@ function Show({ show }) {
               alt={`${show.name}'s Poster Image`}
               className={styles.showImg}
             />
-            <span
+            <Link
               className={styles.showImgLink}
-              onClick={(event) => toggleSummary(event)}
+              to={`/${shows}/${show.name.replaceAll(" ", "-")}`}
             >
-              View Summary
-            </span>
-          </div>
-        </div>
-        <div className={styles.showSummaryModalWrapper}>
-          <div className={styles.showSummaryModal}>
-            <p className={styles.showSummary}>{extractSummary(show.summary)}</p>
-
-            {show.officialSite ? (
-              <p className={styles.showLink}>
-                Click{" "}
-                <b>
-                  <a href={show.officialSite} target="_blank">
-                    here
-                  </a>
-                </b>{" "}
-                for more information.
-              </p>
-            ) : (
-              <p>
-                <i>*Link is currently unavailable.</i>
-              </p>
-            )}
-            <FontAwesomeIcon
-              icon="xmark"
-              className={styles.faXmark}
-              onClick={(event) => toggleSummary(event)}
-            />
+              More Info
+            </Link>
           </div>
         </div>
       </div>

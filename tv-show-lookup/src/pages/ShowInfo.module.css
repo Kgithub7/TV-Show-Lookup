@@ -1,0 +1,50 @@
+.showSummaryModalWrapper {
+  margin: 30vh auto;
+  border-radius: 12px;
+  width: 70vw;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+  animation: fadeIn 0.5s linear;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.showSummaryModal {
+  width: 100%;
+  padding: 48px;
+  position: relative;
+  background-color: #f4faff;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+  overflow: visible;
+}
+
+.showSummary {
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.backBtn{
+  margin-top: 20px;
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 32px;
+  background-color: #1c3666;
+  color: #f4faff;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.backBtn:hover {
+  transform: scale(1.1);
+}

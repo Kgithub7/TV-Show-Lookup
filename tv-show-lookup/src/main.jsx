@@ -8,9 +8,10 @@ import {
   faSpinner,
   faCompactDisc,
   faXmark,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faMagnifyingGlass, faSpinner, faCompactDisc, faXmark);
+library.add(faMagnifyingGlass, faSpinner, faCompactDisc, faXmark,faArrowLeft);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

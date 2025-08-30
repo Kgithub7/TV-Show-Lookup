@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useLocation } from "react-router";
+import { useLocation, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import ShowsNav from "../components/ShowsNav";
 import styles from "./Shows.module.css";
@@ -10,10 +10,9 @@ import Show from "../components/Show";
 function Shows() {
   const [shows, setShows] = useState([]);
   const [loading, setLoading] = useState(true);
-  const location = useLocation();
-
+  const showName=useParams().shows
+  
   async function search() {
-    const showName = location.state;
     const { data } = await axios.get(
       `https://api.tvmaze.com/search/shows?q=${showName}`
     );
@@ -29,8 +28,8 @@ function Shows() {
     search();
     console.log(shows);
     console.log(loading);
-    console.log(location.state);
-  }, [location.state]);
+    console.log(showName);
+  }, [showName]);
   // const showName = input.value;
   // const searchResults = document.querySelector(`.${styles.shows}`);
   // searchResults.innerHTML = `<FontAwesomeIcon icon="faSpinner" />`;
@@ -126,7 +125,7 @@ function Shows() {
               <div className={styles.shows}>
                 {shows.length > 0 ? (
                   shows.map((showObject, index) => 
-                    <Show show={showObject} key={index} />
+                    <Show show={showObject} input={showName} key={index} />
                   )
                 ) : (
                   <div className={styles.notFound}>

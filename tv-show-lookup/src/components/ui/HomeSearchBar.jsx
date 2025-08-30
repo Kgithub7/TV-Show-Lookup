@@ -11,8 +11,7 @@ function HomeSearchBar() {
   function onSearch(event) {
     if (inputValue) {
       event.preventDefault();
-      const searchValue = inputValue;
-      navigate("/shows", { state: searchValue });
+      navigate(`/${inputValue}`);
     }
   }
 
@@ -35,7 +34,7 @@ function HomeSearchBar() {
         className={baseStyles.searchInputBtn}
         onClick={(event) => {
           event.preventDefault();
-          if (inputValue) navigate("/shows", { state: inputValue });
+          if (inputValue) navigate(`/${inputValue}`);
         }}
       >
         <FontAwesomeIcon
